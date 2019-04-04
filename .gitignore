@@ -7,3 +7,5 @@ runs/
 .DS_Store
 models/__pycache__/
 utils/__pycache__/
+__pycache__
+.ipynb_checkpoints/
