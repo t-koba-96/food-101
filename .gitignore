@@ -1,0 +1,9 @@
+images/
+meta/
+README.txt
+random_images/
+weight/
+runs/
+.DS_Store
+models/__pycache__/
+utils/__pycache__/
