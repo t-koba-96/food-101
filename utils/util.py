@@ -20,6 +20,14 @@ def imshow(img):
     plt.show
 
 
+
+def normalize_heatmap(x):
+    min = x.min()
+    max = x.max()
+    result = (x-min)/(max-min)
+    return result
+
+
 def show_predict(images,labels,classes,net,device,image_num,batch):
    
    images_gpu = images.to(device)    
@@ -45,6 +53,7 @@ def show_attention(images,net,device,image_num):
    heatmap = attention[image_num,:,:,:]
    heatmap = heatmap.numpy()
    heatmap = np.average(heatmap,axis=0)
+   heatmap = normalize_heatmap(heatmap)
    # 元の画像と同じサイズになるようにヒートマップのサイズを変更
    heatmap = cv2.resize(heatmap, (img.shape[1], img.shape[0]))
    #特徴ベクトルを256スケール化
